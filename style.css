@@ -1,0 +1,474 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Deep colorful animated gradient background */
+    background: linear-gradient(-45deg, #1a1a2e, #e94560, #4a00e0, #8e2de2, #0f3460);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Background Animated Shapes */
+.background-shapes {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 10s infinite alternate linear;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: #e94560;
+    top: -50px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: #0f3460;
+    bottom: -100px;
+    right: 5%;
+    animation-delay: -5s;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    background: #533483;
+    top: 40%;
+    left: 40%;
+    animation-delay: -2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        transform: translateY(-30px) scale(1.1);
+    }
+}
+
+/* Glassmorphism Panel Setup */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    /* very transparent white */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+/* Main Container Layout */
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+    /* Entrance animation */
+    animation: fadeIn 0.8s ease-out backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header h1 i {
+    color: #e94560;
+}
+
+#date-display {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Input Section */
+.input-section.advanced-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.advanced-form input,
+.advanced-form textarea {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    /* Glass input */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    resize: none;
+    font-family: inherit;
+}
+
+.advanced-form input::placeholder,
+.advanced-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.advanced-form input:focus,
+.advanced-form textarea:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.advanced-form #add-btn {
+    width: 100%;
+    height: 44px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e94560, #c81d3d);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.advanced-form #add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+}
+
+.advanced-form #add-btn:active {
+    transform: translateY(0);
+}
+
+/* Shaking animation for empty input */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.filter-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Todo List Container */
+#todo-list {
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Custom Scrollbar for list */
+#todo-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+#todo-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Individual Todo Item */
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    /* Glassmorphism item style */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+
+    transition: all 0.3s ease;
+    /* Adding animation */
+    animation: slideIn 0.3s ease forwards;
+    transform-origin: top center;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+.todo-item.deleting {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.todo-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.todo-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.todo-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    /* Stack spacing */
+    padding: 4px 0;
+}
+
+.todo-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.todo-work {
+    font-size: 0.85rem;
+    color: #fca311;
+    font-weight: 500;
+}
+
+.todo-caption {
+    font-size: 0.9rem;
+    color: #e94560;
+    font-weight: 500;
+}
+
+.todo-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    word-break: break-word;
+}
+
+.todo-tags {
+    font-size: 0.85rem;
+    color: #4ade80;
+    font-weight: 500;
+}
+
+.todo-time {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Custom Checkbox Design */
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.todo-checkbox i {
+    font-size: 10px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #1a1a2e;
+    /* Dark mark matching theme bg */
+}
+
+/* Completed State styles */
+.todo-item.completed .todo-checkbox {
+    background: #4ade80;
+    border-color: #4ade80;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.4);
+}
+
+.todo-item.completed .todo-checkbox i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.todo-item.completed .todo-heading {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.todo-item.completed .todo-caption,
+.todo-item.completed .todo-desc,
+.todo-item.completed .todo-tags {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.todo-item.completed .todo-time {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Delete button animation and hover */
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    transform: rotate(90deg) scale(1.1);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+}
